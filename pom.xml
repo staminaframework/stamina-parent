@@ -15,7 +15,8 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.staminaframework</groupId>
@@ -56,8 +57,8 @@
     <scm>
         <url>http://github.com/staminaframework/stamina-parent</url>
         <connection>scm:git:https://github.com/staminaframework/stamina-parent.git</connection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -72,18 +73,14 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <preparationGoals>validate</preparationGoals>
+                    <goals>clean deploy</goals>
                     <releaseProfiles>release</releaseProfiles>
                     <pushChanges>false</pushChanges>
                     <localCheckout>true</localCheckout>
+                    <!-- Tag name format must be overridden by subprojects -->
                     <tagNameFormat>stamina-parent-@{project.version}</tagNameFormat>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <configuration>
-                    <excludePackageNames>*.internal.*:*.impl.*</excludePackageNames>
                 </configuration>
             </plugin>
         </plugins>
@@ -122,6 +119,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
