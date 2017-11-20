@@ -20,7 +20,7 @@
 
     <groupId>io.staminaframework</groupId>
     <artifactId>parent</artifactId>
-    <version>2</version>
+    <version>3-SNAPSHOT</version>
     <name>Stamina Framework Parent</name>
     <packaging>pom</packaging>
     <description>
@@ -56,7 +56,7 @@
     <scm>
         <url>http://github.com/staminaframework/stamina-parent</url>
         <connection>scm:git:https://github.com/staminaframework/stamina-parent.git</connection>
-        <tag>stamina-parent-2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <properties>
